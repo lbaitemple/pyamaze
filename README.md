@@ -13,3 +13,16 @@ sudo python3 setup.py install
 export X11Forwarding=yes 
 export DISPLAY=:0
 ```
+***Generate a Maze:***
+To simply generate a maze, you need to create the maze object and then apply the ***CreateMaze*** function. The last statement will be applying the function ***run*** to run the simulation.
+```
+from pyamaze import maze
+m=maze()
+m.CreateMaze()
+m.run()
+```
+
+A random 10x10 maze will be generated like this:
+
+
+![Sample 10x10 Maze](https://github.com/MAN1986/pyamaze/blob/main/Picture1.png)

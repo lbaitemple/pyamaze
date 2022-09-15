@@ -26,3 +26,10 @@ A random 10x10 maze will be generated like this:
 
 
 ![Sample 10x10 Maze](https://github.com/MAN1986/pyamaze/blob/main/Picture1.png)
+
+
+You check a csv in A-Star in Demo folder to understand the format of maze wall and cell. 
+
+0 is wall (no direct way to other cell)
+
+1 is no wall (direct wat to the neighbour cell)

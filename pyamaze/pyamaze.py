@@ -772,8 +772,12 @@ class maze:
                         a.x,a.y=p[(a.x,a.y)]
                 else:
                     del p[(a.x,a.y)]
-            else:    
-                a.x,a.y=p[(a.x,a.y)]
+            else:
+                if (a.x, a.y) in p.keys():
+                    a.x,a.y=p[(a.x,a.y)]
+                else:
+                    return
+                #a.x,a.y=p[(a.x,a.y)]
         # If path is provided as String
         if (type(p)==str):
             if(len(p)==0):

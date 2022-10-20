@@ -52,23 +52,24 @@ def aStar(m,start=None):
 if __name__=='__main__':
     m=maze(4,4)
     m.CreateMaze(loadMaze='aStardemo.csv')
-    m.goal = (2,3)
+    m.goal = (1,3)
 
-    print(m._goal)
-    start = (4,1)
+#    print(m._goal)
+    start = (4,2) # specify the start location
+    # using A-star to seach a path from start loc to goal loc
     searchPath,aPath,fwdPath=aStar(m, start)
-    print(fwdPath)
+ #   print(fwdPath)
  #   a=agent(m,footprints=True,color=COLOR.blue,filled=True)
  #   b=agent(m,1,1,footprints=True,color=COLOR.yellow,filled=True,goal=(m.rows,m.cols))
-    c=agent(m,footprints=True,color=COLOR.red)
-    c.position = start
+    # must specify x and y so it will draw the start location in the right place
+    c=agent(m,x=start[0], y=start[1], footprints=True,filled=False,color=COLOR.red)
+ #   c.position = start
 
 #    m.tracePath({a:searchPath},delay=300)
 #    m.tracePath({b:aPath},delay=300)
-    m.tracePath({c:fwdPath},delay=300)
+    m.tracePath({c:fwdPath},delay=1000)
 
-    l=textLabel(m,'A Star Path Length',len(fwdPath)+1)
- #   l=textLabel(m,'A Star Search Length',len(searchPath))
+    l=textLabel(m,'A Star Path Length',len(fwdPath))
     m.run()
 
 

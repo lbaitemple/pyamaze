@@ -312,6 +312,16 @@ class maze:
         self.markCells=[]
 
     @property
+    def goal(self):
+        return self._goal
+    @goal.setter
+    def goal(self,v):
+        agent(self,*self._goal,shape='square',filled=True,color=COLOR.dark)
+        self._goal=v
+        agent(self,*self._goal,shape='square',filled=True,color=COLOR.green)
+        #self._var.set(f'{self.title} : {v}')
+
+    @property
     def grid(self):
         return self._grid
     @grid.setter        
@@ -325,18 +335,6 @@ class maze:
                 self.grid.append((x,y))
                 self.maze_map[x,y]={'E':0,'W':0,'N':0,'S':0}
                 x = x + 1 
-    @property
-    def goal(self):
-        return (self._goal.x,self._goal.y)
-    @goal.setter
-    def goal(self,newpos):
-        #self._goal.x=newpos[0]
-        #self._goal.y=newpos[1]
-        agent(self,*self._goal,shape='square',filled=True,color=COLOR.black)
-        
-        self._goal=newpos
-        agent(self,*self._goal,shape='square',filled=True,color=COLOR.green)
-
     def _Open_East(self,x, y):
         '''
         To remove the East Wall of the cell
@@ -356,8 +354,6 @@ class maze:
         self.maze_map[x,y]['S']=1
         if x+1<=self.rows:
             self.maze_map[x+1,y]['N']=1
-
-
     
     def CreateMaze(self,x=1,y=1,pattern=None,loopPercent=0,saveMaze=False,loadMaze=None,theme:COLOR=COLOR.dark):
         '''
